@@ -5,17 +5,18 @@ import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import LoginScreen from './screens/LoginScreen';
 import HomeScreen from './screens/HomeScreen';
 import Tabs from './navigation/tab';
+import { app } from './firebase';
+import { SecondScreenNavigator } from './navigation/customNavigation';
 
 const Stack = createNativeStackNavigator();
 
-
 export default function App() {
-  return (
-   <NavigationContainer>
-     <Tabs/>
-    </NavigationContainer> 
-     
-  );
+
+    return (
+      <NavigationContainer>
+           <Tabs/> 
+       </NavigationContainer>  
+    )    
 }
 
 const styles = StyleSheet.create({
@@ -26,3 +27,4 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
   },
 });
+

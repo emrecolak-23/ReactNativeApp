@@ -1,23 +1,23 @@
 import { StyleSheet, Text, TouchableOpacity, View } from 'react-native'
 import React from 'react'
 import {getAuth} from 'firebase/auth'
+import Tabs from '../navigation/tab';
+import { NavigationContainer } from '@react-navigation/native';
 
-const HomeScreen = () => {
+const auth = getAuth();
+const userMail = auth.currentUser?.email
+const HomeScreen = ({navigation}) => {
 
-  const auth = getAuth();
   return (
     <View style={styles.container}>
         
         <View style={styles.welcomeTextContainer}>
           <Text style= {styles.welcomeText}>Welcome to Sociella</Text>
-          <Text style= {styles.welcomeText}>{auth.currentUser?.email}</Text>
+          <Text style= {styles.welcomeText}>{userMail}</Text>
         </View>
-        <TouchableOpacity
-          style={styles.button}
-         >
-          <Text style={styles.buttonText}>Sign Out</Text>
-        </TouchableOpacity>
+        
     </View>
+    
   )
 }
 

@@ -4,30 +4,31 @@ import { app } from '../firebase'
 import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword, onAuthStateChanged } from "firebase/auth";
 import { useNavigation } from '@react-navigation/native';
 
-const LoginScreen = () => {
+
+
+const LoginScreen = ({navigation}) => {
 
   const [email,setEmail] = useState('')
   const [password,setPassword] = useState('')
+  const auth = getAuth();
 
-  const navigation = useNavigation();
 
   useEffect(()=>{
-    const auth = getAuth();
-    const unsubcribe = auth.onAuthStateChanged(user =>{
-      if(user){
-        navigation.navigate("Home");
+    const unsubscribe = auth.onAuthStateChanged(user=>{
+      if (user) {
+          navigation.navigate("Home")
       }
     })
-
-    return unsubcribe 
+    return unsubscribe
   },[])
 
   const handleSignUp = () =>{
-    const auth = getAuth();
     createUserWithEmailAndPassword(auth,email,password)
     .then(userCredentials => {
       const user = userCredentials.user;
       console.log("Registerred: ",user.email);
+      navigation.navigate("Home");
+      
     })
     .catch(error =>{
       alert(error.message);
@@ -40,6 +41,7 @@ const LoginScreen = () => {
       .then(userCredentials => {
         const user = userCredentials.user;
         console.log("Logged In: ",user);
+        navigation.navigate("Home");
       })
       .catch((error)=>{
         console.log(error);

@@ -1,21 +1,26 @@
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import HomeScreen from '../screens/HomeScreen';
+import LoginScreen from '../screens/LoginScreen';
 import UserScreen from '../screens/UserScreen';
 import PostScreen from '../screens/PostScreen';
 import TodoScreen from '../screens/UserScreen';
 import SignOutScreen from '../screens/SignOutScreen';
 import {StyleSheet, Text, View, Image, TouchableOpacity} from 'react-native'
+import {FirstScreenNavigator,SecondScreenNavigator} from './customNavigation'
+import { getAuth } from 'firebase/auth';
 
 const Tab = createBottomTabNavigator();
 
+
 const Tabs = () => {
+
   return (
     <Tab.Navigator
       tabBarOptions={{
-        showLabel:false,      
+        showLabel:false, 
       }}
       screenOptions={{
-        tabBarStyle: { 
+        tabBarStyle: [{ 
           position: 'absolute',
           bottom: 25,
           left: 20,
@@ -24,11 +29,12 @@ const Tabs = () => {
           backgroundColor: '#B8405E',
           borderRadius: 15,
           height: 90,
+          display: "flex",
           ...styles.shadow
-        },
+        }, null ]
       }}
       >
-      <Tab.Screen name="Home" component={HomeScreen} options={{
+      <Tab.Screen name="Home" component={SecondScreenNavigator} options={{
         tabBarIcon: ({focused}) => (
           <View style={{alignItems:"center",justifyContent:"center", top:5}}>
             <Image
@@ -92,7 +98,9 @@ const Tabs = () => {
           </View>
         )
       }}/>
-      <Tab.Screen name="SignOut" component={SignOutScreen} options={{
+      <Tab.Screen name="SignOut" component={FirstScreenNavigator} options={{
+        tabBarStyle: {display:"none"},
+        headerShown: false,
         tabBarIcon: ({focused}) => (
           <View style={{alignItems:"center",justifyContent:"center", top:5}}>
             <Image
@@ -108,6 +116,7 @@ const Tabs = () => {
           </View>
         )
       }}/>
+     
     </Tab.Navigator>
   );
 }

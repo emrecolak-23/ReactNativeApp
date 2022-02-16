@@ -5,14 +5,14 @@ import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword, on
 import { useNavigation } from '@react-navigation/native';
 
 
-
+// Create Login Screen
 const LoginScreen = ({navigation}) => {
-
+ // Create State
   const [email,setEmail] = useState('')
   const [password,setPassword] = useState('')
   const auth = getAuth();
 
-
+// Create Automatically Navigate Authentication
   useEffect(()=>{
     const unsubscribe = auth.onAuthStateChanged(user=>{
       if (user) {
@@ -22,6 +22,7 @@ const LoginScreen = ({navigation}) => {
     return unsubscribe
   },[])
 
+  // Handle SignUp With Firebase
   const handleSignUp = () =>{
     createUserWithEmailAndPassword(auth,email,password)
     .then(userCredentials => {
@@ -34,7 +35,7 @@ const LoginScreen = ({navigation}) => {
       alert(error.message);
     })
   }
-
+// Handle LogIn With Firebase
   const handleLogIn = () => {
     const auth = getAuth();
     signInWithEmailAndPassword(auth,email,password)

@@ -2,6 +2,7 @@ import React, {useEffect, useState}  from "react";
 import { View,Text,StyleSheet,ScrollView } from "react-native";
 import axios from "axios";
 
+// Create Todo Screens
 const TodoScreen = () =>{
   const [todos,setTodos] = useState([])
 
@@ -12,6 +13,7 @@ const TodoScreen = () =>{
   //     .catch(error=>console.log(error))
   // },[]);
 
+// Get JSON Data
   useEffect(()=>{
     axios.get('https://jsonplaceholder.typicode.com/todos')
       .then(response=>setTodos(response.data))
@@ -23,6 +25,7 @@ const TodoScreen = () =>{
     <View style={styles.container}>
       <ScrollView>
       {
+        // Create Custom Table View
         todos.map((item)=>{
           return (
             <View key={item.id} style={styles.postContainer}>

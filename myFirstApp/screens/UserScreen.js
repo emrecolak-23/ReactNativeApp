@@ -3,8 +3,10 @@ import { View,Text,StyleSheet, ScrollView } from "react-native";
 import { FlatList } from "react-native-gesture-handler";
 import axios from 'axios'
 
+// Create User Screen
 const UserScreen = () =>{
 
+  // Create State With Array
   const [users,setUsers] = useState([])
 
   // useEffect(()=>{
@@ -14,6 +16,7 @@ const UserScreen = () =>{
   //     .catch(error=>console.log(error))
   // },[]);
 
+// Get user Data With AXİOS
   useEffect(()=>{
 
     axios.get('https://jsonplaceholder.typicode.com/users')
@@ -26,6 +29,7 @@ const UserScreen = () =>{
     <View style={styles.container}>
       <ScrollView>
       {
+        // Create Custom Table View
         users.map((item)=>{
           return (
             <View key={item.id} style={styles.userContainer}>

@@ -2,7 +2,7 @@ import React, {useEffect, useState}  from "react";
 import { View,Text,StyleSheet,ScrollView } from "react-native";
 import axios from 'axios'
 
-
+// Create Post Screen
 const PostScreen = () =>{
   const [posts,setPosts] = useState([])
 
@@ -13,6 +13,7 @@ const PostScreen = () =>{
   //     .catch(error=>console.log(error))
   // },[]);
 
+  // Get Pots Data With AXİOS
   useEffect(()=>{
     axios.get('https://jsonplaceholder.typicode.com/posts')
       .then(response=>setPosts(response.data))

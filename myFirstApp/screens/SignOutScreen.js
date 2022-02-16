@@ -5,11 +5,12 @@ import {getAuth, signOut} from 'firebase/auth'
 import { NavigationContainer, useNavigation, withNavigation } from "@react-navigation/native";
 import { customNavigation } from '../navigation/customNavigation';
 
-
+// Create SignOutScreen
 const SignOutScreen = ({navigation}) =>{
 
-  
+  // Get Authentication
   const auth = getAuth()
+  // Handle Users LogOut
   const handleLogOut = () => {
     auth.signOut()
     .then(()=>{
@@ -19,12 +20,13 @@ const SignOutScreen = ({navigation}) =>{
       console.log(err.message)
     })
   }
+  // Navigate SignOut to Home (Just Kidding Button)
   const sendHome = () => {
     
       navigation.navigate("Home");
    
   }
-
+// Create SignOut UI
   return (
     <View style={styles.container}>
       <Text style={styles.logOutText}>Log Out</Text>

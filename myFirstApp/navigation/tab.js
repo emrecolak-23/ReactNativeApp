@@ -9,9 +9,10 @@ import {StyleSheet, Text, View, Image, TouchableOpacity} from 'react-native'
 import {FirstScreenNavigator,SecondScreenNavigator} from './customNavigation'
 import { getAuth } from 'firebase/auth';
 
+// Create Bottom Tab Navigator
 const Tab = createBottomTabNavigator();
 
-
+// Create Custom Tab Navigator
 const Tabs = () => {
 
   return (
@@ -130,6 +131,7 @@ const Tabs = () => {
 
 export default Tabs;
 
+// Create Style
 const styles = StyleSheet.create({
   shadow: {
     shadowColor: '#7F5DF0',

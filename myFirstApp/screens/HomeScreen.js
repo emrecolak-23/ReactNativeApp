@@ -4,8 +4,10 @@ import {getAuth} from 'firebase/auth'
 import Tabs from '../navigation/tab';
 import { NavigationContainer } from '@react-navigation/native';
 
+// Create Auth and Get User Email
 const auth = getAuth();
 const userMail = auth.currentUser?.email
+// Create HomeScreen
 const HomeScreen = ({navigation}) => {
 
   return (

@@ -15,10 +15,22 @@ const FirstScreenNavigator = () => {
       <Stack.Screen 
         name="Log Out"
         component={SignOutScreen}
-        options={{headerShown:false}}
+        options={{
+          headerShown:false,
+          headerStyle: {
+            backgroundColor: "#B8405E"
+          },
+          headerTintColor: "white",
+        }}
       />
       <Stack.Screen 
-        options={{headerShown:false}}
+        options={{
+          headerShown:false,
+          headerStyle: {
+            backgroundColor: "#B8405E"
+          },
+          headerTintColor: "white",
+        }}
         name="Login"
         component={LoginScreen}
         
@@ -35,12 +47,24 @@ const SecondScreenNavigator = () => {
       <Stack.Screen 
         name="Login"
         component={LoginScreen}
-        options={{headerShown:false}}
+        options={{
+          headerShown:false,
+          headerStyle: {
+            backgroundColor: "#B8405E"
+          },
+          headerTintColor: "white",
+        }}
       />
       <Stack.Screen 
         name="Home"
         component={HomeScreen}
-        options={{headerShown:false}}
+        options={{
+          headerShown:false,
+          headerStyle: {
+            backgroundColor: "#B8405E"
+          },
+          headerTintColor: "white",
+        }}
       />
       
     </Stack.Navigator>

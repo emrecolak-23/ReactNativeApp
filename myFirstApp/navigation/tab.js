@@ -3,7 +3,7 @@ import HomeScreen from '../screens/HomeScreen';
 import LoginScreen from '../screens/LoginScreen';
 import UserScreen from '../screens/UserScreen';
 import PostScreen from '../screens/PostScreen';
-import TodoScreen from '../screens/UserScreen';
+import TodoScreen from '../screens/TodoScreen';
 import SignOutScreen from '../screens/SignOutScreen';
 import {StyleSheet, Text, View, Image, TouchableOpacity} from 'react-native'
 import {FirstScreenNavigator,SecondScreenNavigator} from './customNavigation'
@@ -31,7 +31,14 @@ const Tabs = () => {
           height: 90,
           display: "flex",
           ...styles.shadow
-        }, null ]
+        }, null ],
+        headerStyle: {
+          backgroundColor: "#B8405E"
+        },
+        headerTintColor: "white",
+        headerTitleStyle: {
+          fontWeight: 'bold',
+        },
       }}
       >
       <Tab.Screen name="Home" component={SecondScreenNavigator} options={{

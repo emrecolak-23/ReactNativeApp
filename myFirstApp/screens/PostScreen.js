@@ -26,7 +26,7 @@ const PostScreen = () =>{
       {
         posts.map((item)=>{
           return (
-            <View style={styles.postContainer}>
+            <View key={item.id} style={styles.postContainer}>
                 <View style={styles.id}>
                 <Text style={styles.idText}>{item.id}</Text>
                 </View>

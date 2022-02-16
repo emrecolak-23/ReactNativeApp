@@ -1,6 +1,6 @@
-import React  from "react";
-import { View,Text,StyleSheet } from "react-native";
-
+import React, {useEffect, useState}  from "react";
+import { View,Text,StyleSheet,ScrollView } from "react-native";
+import axios from "axios";
 
 const TodoScreen = () =>{
   const [todos,setTodos] = useState([])
@@ -25,13 +25,12 @@ const TodoScreen = () =>{
       {
         todos.map((item)=>{
           return (
-            <View swtyle={styles.postContainer}>
+            <View key={item.id} style={styles.postContainer}>
                 <View style={styles.id}>
                 <Text style={styles.idText}>{item.id}</Text>
                 </View>
                 <View style={styles.postInfo}>
-                  <Text style={styles.title}>{item.title}</Text>
-                  <Text style={styles.info}>{item.completed}</Text>
+                  <Text style={item.completed.toString() === "true" ? styles.completedTitle : styles.notCompletedTitle}>{item.title}</Text>
                 </View>
              </View>
               
@@ -41,14 +40,7 @@ const TodoScreen = () =>{
       </ScrollView>
     </View>
 
-    // <View style={styles.container}>
-    // {users.map(user=>{
-    //   return <View style={styles.userContainer}>
-    //     <Text style={styles.name}>{user.name}</Text>
-    //     <Text style={styles.email}>{user.email}</Text>
-    //     </View>
-    // })}
-    // </View>
+    
   )
 }
 export default TodoScreen
@@ -67,10 +59,16 @@ const styles = StyleSheet.create({
     margin:"1%",
     flexDirection:"row"
   },
-  title: {
-    color: "white",
+  completedTitle: {
+    color: "#2EB086",
     fontWeight: '700',
-    fontSize: 16,
+    fontSize: 20,
+    marginLeft: "10%"
+  },
+  notCompletedTitle: {
+    color: "#B8405E",
+    fontWeight: '700',
+    fontSize: 20,
     marginLeft: "10%"
   },
   info:{

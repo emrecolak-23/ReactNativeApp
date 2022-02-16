@@ -13,7 +13,7 @@ const HomeScreen = ({navigation}) => {
         
         <View style={styles.welcomeTextContainer}>
           <Text style= {styles.welcomeText}>Welcome to Sociella</Text>
-          <Text style= {styles.welcomeText}>{userMail}</Text>
+          <Text style= {styles.welcomeText}>{auth.currentUser.email}</Text>
         </View>
         
     </View>

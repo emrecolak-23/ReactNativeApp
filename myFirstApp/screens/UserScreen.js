@@ -28,7 +28,7 @@ const UserScreen = () =>{
       {
         users.map((item)=>{
           return (
-            <View style={styles.userContainer}>
+            <View key={item.id} style={styles.userContainer}>
                 <View style={styles.id}>
                 <Text style={styles.idText}>{item.id}</Text>
                 </View>
